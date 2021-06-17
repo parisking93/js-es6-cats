@@ -24,7 +24,7 @@ const gatti = [
     {
         nome : 'gigi',
         età : 2,
-        colore : '#000000',
+        colore : '#005500',
         sesso : 'maschio'
 
     },
@@ -45,12 +45,15 @@ const gatti = [
 ];
 
 // Tramite il forEach(), stampare in pagina tutti i gattini, ciascuno con il proprio colore e il proprio nome.
-
+const gatto = document.getElementsByClassName('fas fa-cat');
 
 gatti.forEach((element,index) => {
     let {nome,colore} = element;
-    document.getElementById('output').innerHTML += `<i class="fas fa-cat"></i>  ${nome} <br>` ;
-    let gatto = document.getElementsByClassName('fas fa-cat');
+    document.getElementById('output').innerHTML += 
+    `
+    <i class="fas fa-cat"></i> <span class = "name">${nome}</span> <br>
+    ` ;
+
     gatto[index].style.color = colore;
 });
 
