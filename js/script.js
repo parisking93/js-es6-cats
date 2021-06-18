@@ -79,7 +79,7 @@ const newGatti = gatti.map((element,index) => {
         ribbon : {
             color : ribbonColor,
             opacity : opacità
-            },
+            }
     }
 });
 console.log(newGatti);
