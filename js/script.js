@@ -42,20 +42,24 @@ const gatti = [
         sesso : 'maschio'
 
     },
+    {
+        nome : 'nana',
+        eta : 5,
+        colore : '#698c9b',
+        sesso : 'femmina'
+    }
 ];
 
+
 // Tramite il forEach(), stampare in pagina tutti i gattini, ciascuno con il proprio colore e il proprio nome.
-// const gatto = document.getElementsByClassName('fas fa-cat');
-// const ribbonFont = document.getElementsByClassName('fas fa-ribbon');
 
 
-gatti.forEach((element,index) => {
+gatti.forEach((element) => {
     const {nome,colore} = element;
     document.getElementById('output').innerHTML += 
     `
     <i class="fas fa-cat" style ="color : ${colore}"></i> <span class = "name">${nome}</span> <br>
     ` ;
-    // ad ogni gatto assegno il proprio colore 
 });
 
 // Milestone 2 Dividere i gatti in due contenitori distinti in base al sesso e aggiungere a fianco di ogni gattino un fiocco colorato di rosa, se femmina, o di blu, se maschio. Il colore del fiocco deve essere più tenue se il gatto è più giovane, più scuro se il gatto è più vecchio.
@@ -63,9 +67,8 @@ gatti.forEach((element,index) => {
 const pink = '#ffb8c6';
 const blue ='#3535ec';
 // aggiungere a fianco di ogni gattino un fiocco colorato di rosa, se femmina, o di blu, se maschio.
-const newGatti = gatti.map((element) => {
+const newGatti = gatti.map((element,index) => {
     const {nome,eta,colore,sesso} = element;
-
     let ribbonColor = (sesso == 'maschio')? blue : pink;
     const opacità = eta / 8;
     return {
@@ -76,20 +79,18 @@ const newGatti = gatti.map((element) => {
         ribbon : {
             color : ribbonColor,
             opacity : opacità
-        }
+            },
     }
-
 });
 console.log(newGatti);
 
 const pusha = (array) => {
-    array.forEach((element,index) => {
+    array.forEach((element) => {
         const {nome,colore,ribbon} = element;
         document.getElementById('output').innerHTML += 
         `
         <i class="fas fa-cat" style ="color : ${colore}"></i> <i class="fas fa-ribbon" style = "color : ${ribbon.color}; opacity :${ribbon.opacity};"></i> <span class = "name">${nome}</span> <br>
         ` ;
-        // ad ogni gatto assegno il proprio colore 
     });
 }
 
@@ -120,6 +121,7 @@ newGattiFemmineMaschi = newGattiFemmineMaschi.map((element) => {
             
 })
 pusha(newGattiFemmineMaschi);
+console.log('nuovo array di gatti femmine e maschi in ordine ', newGattiFemmineMaschi);
 document.getElementById('output').className = 'fontSize30';
 
 
