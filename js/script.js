@@ -80,7 +80,7 @@ const newGatti = gatti.map((element,index) => {
             color : ribbonColor,
             opacity : opacità
             }
-    }
+    };
 });
 console.log(newGatti);
 
@@ -117,9 +117,9 @@ newGattiFemmineMaschi = newGattiFemmineMaschi.map((element) => {
         nome,
         colore,
         ribbon
-    }
+    };
             
-})
+});
 pusha(newGattiFemmineMaschi);
 console.log('nuovo array di gatti femmine e maschi in ordine ', newGattiFemmineMaschi);
 document.getElementById('output').className = 'fontSize30';
